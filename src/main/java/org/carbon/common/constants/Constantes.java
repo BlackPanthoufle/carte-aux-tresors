@@ -81,6 +81,85 @@ public class Constantes {
     public static final String EXTENSION_FICHIER_TEMPORAIRE = "-tmp";
 
     /**
+     * Identifiant pour les informations sur la carte dans un fichier
+     */
+    public static final String IDENTIFIANT_CARTE_FICHIER = "C";
+
+    /**
+     * Identifiant pour les informations d'une montagne dans un fichier
+     */
+    public static final String IDENTIFIANT_MONTAGNE_FICHIER = "M";
+
+    /**
+     * Identifiant pour les informations d'un trésor dans un fichier
+     */
+    public static final String IDENTIFIANT_TRESOR_FICHIER = "T";
+
+    /**
+     * Identifiant pour les informations d'un aventurier dans un fichier
+     */
+    public static final String IDENTIFIANT_AVENTURIER_FICHIER = "A";
+
+    /**
+     * Identifiant pour les commentaires dans un fichier
+     */
+    public static final String IDENTIFIANT_COMMENTAIRE_FICHIER = "#";
+
+    /**
+     * Position dans une ligne de fichier de l'identifiant d'un object
+     */
+    public static final int POSITION_IDENTIFIANT_OBJET_FICHIER = 0;
+
+    /**
+     * Position dans une ligne de fichier de la largeur de la carte
+     * ou position dans la largeur de la carte
+     */
+    public static final int POSITION_LARGEUR_FICHIER = 1;
+
+    /**
+     * Position dans une ligne de fichier de la hauteur de la carte
+     * ou position dans la hauteur de la carte
+     */
+    public static final int POSITION_HAUTEUR_FICHIER = 2;
+
+    /**
+     * Position dans une ligne de fichier du nombre de trésors dans une case avec un trésor
+     */
+    public static final int POSITION_NB_TRESORS_FICHIER = 3;
+
+    /**
+     * Position dans une ligne de fichier du nom d'un aventurier
+     */
+    public static final int POSITION_AVENTURIER_NOM_FICHIER = 1;
+
+    /**
+     * Position dans une ligne de fichier de la position d'un aventurier
+     * dans la largeur de la carte
+     */
+    public static final int POSITION_AVENTURIER_LARGEUR_FICHIER = 2;
+
+    /**
+     * Position dans une ligne de fichier de la position d'un aventurier
+     * dans la hauteur de la carte
+     */
+    public static final int POSITION_AVENTURIER_HAUTEUR_FICHIER = 3;
+
+    /**
+     * Position dans une ligne de fichier de l'orientation cardinale d'un aventurier
+     */
+    public static final int POSITION_AVENTURIER_ORIENTATION_FICHIER = 4;
+
+    /**
+     * Position dans une ligne de fichier de la séquence de mouvement d'un aventurier
+     */
+    public static final int POSITION_AVENTURIER_SEQUENCE_MOUVEMENT_FICHIER = 5;
+
+    /**
+     * Position dans une ligne de fichier du nombre de trésors ramassés par un aventurier
+     */
+    public static final int POSITION_AVENTURIER_TRESORS_RAMASSES_FICHIER = 5;
+
+    /**
      * Constructeur par défaut
      */
     private Constantes() {}
