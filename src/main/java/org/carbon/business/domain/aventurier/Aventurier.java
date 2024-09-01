@@ -27,6 +27,11 @@ public class Aventurier {
     private int tresorsRamasses;
 
     /**
+     * Ordre de passage pour l'aventurier
+     */
+    private final int ordrePassage;
+
+    /**
      * Séquence de mouvements à exécuter
      */
     private final LinkedList<Mouvement> sequenceMouvements;
@@ -37,12 +42,15 @@ public class Aventurier {
      * @param pNom nom de l'aventurier
      * @param pOrientationCardinale orientation cardinale initiale
      * @param pTresorsRamasses nombre de trésors ramassés
+     * @param pOrdrePassage ordre de passage
      * @param pSequenceMouvements séquence de mouvement intiale
      */
-    public Aventurier(final String pNom, final OrientationCardinale pOrientationCardinale, final int pTresorsRamasses, final LinkedList<Mouvement> pSequenceMouvements) {
+    public Aventurier(final String pNom, final OrientationCardinale pOrientationCardinale, final int pTresorsRamasses,
+            final int pOrdrePassage, final LinkedList<Mouvement> pSequenceMouvements) {
         nom = pNom;
         orientationCardinale = pOrientationCardinale;
         tresorsRamasses = pTresorsRamasses;
+        ordrePassage = pOrdrePassage;
         sequenceMouvements = pSequenceMouvements;
     }
 
@@ -51,12 +59,15 @@ public class Aventurier {
      *
      * @param pNom nom de l'aventurier
      * @param pOrientationCardinale orientation cardinale initiale
+     * @param pOrdrePassage ordre de passage
      * @param pSequenceMouvements séquence de mouvement intiale
      */
-    public Aventurier(final String pNom, final OrientationCardinale pOrientationCardinale, final LinkedList<Mouvement> pSequenceMouvements) {
+    public Aventurier(final String pNom, final OrientationCardinale pOrientationCardinale,
+            final int pOrdrePassage, final LinkedList<Mouvement> pSequenceMouvements) {
         nom = pNom;
         orientationCardinale = pOrientationCardinale;
         tresorsRamasses = 0;
+        ordrePassage = pOrdrePassage;
         sequenceMouvements = pSequenceMouvements;
     }
 
@@ -67,6 +78,7 @@ public class Aventurier {
         nom = "";
         orientationCardinale = null;
         tresorsRamasses = 0;
+        ordrePassage = 0;
         sequenceMouvements = new LinkedList<>();
     }
 
@@ -136,6 +148,13 @@ public class Aventurier {
      */
     public LinkedList<Mouvement> getSequenceMouvements() {
         return sequenceMouvements;
+    }
+
+    /**
+     * @return ordrePassage
+     */
+    public int getOrdrePassage() {
+        return ordrePassage;
     }
 
 }
