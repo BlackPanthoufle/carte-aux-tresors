@@ -6,39 +6,39 @@ package org.carbon.business.domain.carte;
 public class Coordonnees {
 
     /**
-     * Position dans l'axe de la longueur
+     * Position dans l'axe de la hauteur
      */
-    private final int i;
+    private final int indexHauteur;
 
     /**
      * Position dans l'axe de la largeur
      */
-    private final int j;
+    private final int indexLargeur;
 
     /**
      * Constructeur paramétré
      *
-     * @param pI index de la longueur
-     * @param pJ index de la largeur
+     * @param pIndexHauteur index dans l'axe de la hauteur
+     * @param pIndexLargeur index dans l'axe de la largeur
      */
-    public Coordonnees(final int pI, final int pJ) {
-        i = pI;
-        j = pJ;
+    public Coordonnees(final int pIndexHauteur, final int pIndexLargeur) {
+        indexHauteur = pIndexHauteur;
+        indexLargeur = pIndexLargeur;
     }
 
 
     /**
-     * @return i
+     * @return indexHauteur
      */
-    public int getI() {
-        return i;
+    public int getIndexHauteur() {
+        return indexHauteur;
     }
 
     /**
-     * @return j
+     * @return indexLargeur
      */
-    public int getJ() {
-        return j;
+    public int getIndexLargeur() {
+        return indexLargeur;
     }
 
 }

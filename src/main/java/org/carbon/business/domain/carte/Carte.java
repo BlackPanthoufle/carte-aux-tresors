@@ -10,14 +10,14 @@ import java.util.ArrayList;
 public class Carte {
 
     /**
-     * Longueur de la carte
-     */
-    private final int longueur;
-
-    /**
      * Largeur de la carte
      */
     private final int largeur;
+
+    /**
+     * Hauteur de la carte
+     */
+    private final int hauteur;
 
     /**
      * Matrice de stockage des cases, trésors et aventuriers
@@ -27,13 +27,13 @@ public class Carte {
     /**
      * Constructeur exhaustif de l'objet carte
      *
-     * @param pLongueur longueur de la carte
      * @param pLargeur largeur de la carte
+     * @param pHauteur hauteur de la carte
      * @param pMatrice matrice de la carte initialisée
      */
-    public Carte(final int pLongueur, final int pLargeur, final ArrayList<ArrayList<Case>> pMatrice) {
-        longueur = pLongueur;
+    public Carte(final int pLargeur, final int pHauteur, final ArrayList<ArrayList<Case>> pMatrice) {
         largeur = pLargeur;
+        hauteur = pHauteur;
         matrice = pMatrice;
     }
 
@@ -41,16 +41,9 @@ public class Carte {
      * Constructeur par défaut
      */
     public Carte() {
-        longueur = 0;
         largeur = 0;
+        hauteur = 0;
         matrice = new ArrayList<>();
-    }
-
-    /**
-     * @return longueur
-     */
-    public int getLongueur() {
-        return longueur;
     }
 
     /**
@@ -58,6 +51,13 @@ public class Carte {
      */
     public int getLargeur() {
         return largeur;
+    }
+
+    /**
+     * @return hauteur
+     */
+    public int getHauteur() {
+        return hauteur;
     }
 
     /**
