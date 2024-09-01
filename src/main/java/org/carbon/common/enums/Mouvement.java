@@ -39,6 +39,19 @@ public enum Mouvement {
         degreRotation = pDegreRotation;
     }
 
+    public static Mouvement getMouvementFromCode(final String codeMouvement) {
+        switch(codeMouvement) {
+            case Constantes.CODE_MOUVEMENT_CONSTANT:
+                return AVANCER;
+            case Constantes.CODE_ROTATION_GAUCHE:
+                return GAUCHE;
+            case Constantes.CODE_ROTATION_DROITE:
+                return DROITE;
+            default:
+                return null;
+        }
+    }
+
     /**
      * Récupère le code du mouvement
      *

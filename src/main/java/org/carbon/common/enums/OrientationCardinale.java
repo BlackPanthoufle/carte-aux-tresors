@@ -65,4 +65,19 @@ public enum OrientationCardinale {
         return degreOrientationCardinale;
     }
 
+    public static OrientationCardinale getOrientationFromCode(final String codeOrientationCardinale) {
+        switch(codeOrientationCardinale) {
+            case Constantes.CODE_NORD:
+                return NORD;
+            case Constantes.CODE_EST:
+                return EST;
+            case Constantes.CODE_SUD:
+                return SUD;
+            case Constantes.CODE_OUEST:
+                return OUEST;
+            default:
+                return null;
+        }
+    }
+
 }
