@@ -43,4 +43,9 @@ public interface Case {
      */
     void setTresor(final Tresor pTresor);
 
+    /**
+     * Renvoie le trésor présent s'il y en a un sur la case
+     */
+    Tresor getTresor();
+
 }

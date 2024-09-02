@@ -62,4 +62,9 @@ public class Plaine implements Case {
         tresor = pTresor;
     }
 
+    @Override
+    public Tresor getTresor() {
+        return tresor;
+    }
+
 }

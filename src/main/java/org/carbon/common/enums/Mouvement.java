@@ -15,12 +15,12 @@ public enum Mouvement {
     /**
      * Constante pour la rotation à gauche
      */
-    GAUCHE(Constantes.CODE_ROTATION_GAUCHE, -Constantes.DEGRE_MOUVEMENT_ROTATION),
+    GAUCHE(Constantes.CODE_ROTATION_GAUCHE, Constantes.DEGRE_MOUVEMENT_ROTATION_GAUCHE),
 
     /**
      * Constante pour la rotation à droite
      */
-    DROITE(Constantes.CODE_ROTATION_DROITE, Constantes.DEGRE_MOUVEMENT_ROTATION);
+    DROITE(Constantes.CODE_ROTATION_DROITE, Constantes.DEGRE_MOUVEMENT_ROTATION_DROITE);
 
     /**
      * Mouvement

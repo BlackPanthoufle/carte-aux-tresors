@@ -1,9 +1,16 @@
 package org.carbon.common.constants;
 
+import java.io.File;
+
 /**
  * Classe de constantes
  */
 public class Constantes {
+
+    /**
+     *
+     */
+    public static final String REPERTOIRE_ENTREE = "cartes" + File.separator;
 
     /**
      * Constante pour avoir le modulo d'une rotation complète
@@ -51,9 +58,14 @@ public class Constantes {
     public static final String CODE_OUEST = "O";
 
     /**
-     * Constante du déplacement en degrés pour un mouvement de rotation
+     * Constante du déplacement en degrés pour un mouvement de rotation à droite
      */
-    public static final int DEGRE_MOUVEMENT_ROTATION = 90;
+    public static final int DEGRE_MOUVEMENT_ROTATION_DROITE = 90;
+
+    /**
+     * Constante du déplacement en degrés pour un mouvement de rotation à gauche
+     */
+    public static final int DEGRE_MOUVEMENT_ROTATION_GAUCHE = 270;
 
     /**
      * Code pour une rotation vers la gauche

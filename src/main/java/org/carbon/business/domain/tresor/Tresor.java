@@ -37,7 +37,9 @@ public class Tresor {
      * Décrémente le nombre de trésors
      */
     public void decrementeNombreTresors() {
-        nombreTresors--;
+        if (nombreTresors > 0) {
+            nombreTresors--;
+        }
     }
 
 }

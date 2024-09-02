@@ -77,7 +77,7 @@ public class CarteMapper {
     private static void genererObjets(final String[] ligneSplit) {
         Coordonnees coordonnees;
 
-        switch(ligneSplit[0]) {
+        switch(ligneSplit[Constantes.POSITION_IDENTIFIANT_OBJET_FICHIER]) {
             case Constantes.IDENTIFIANT_CARTE_FICHIER:
                 if (ligneSplit.length != 3) {
                     throw new RuntimeException("Nombre de paramètres incorrect pour les dimensions de la carte.");
