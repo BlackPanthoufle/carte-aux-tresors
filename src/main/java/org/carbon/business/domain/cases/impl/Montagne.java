@@ -42,6 +42,11 @@ public class Montagne implements Case {
     }
 
     @Override
+    public int getNbTresor() {
+        return 0;
+    }
+
+    @Override
     public void setTresor(Tresor tresor) {
         // Aucune action à faire
     }

@@ -1,5 +1,6 @@
 package org.carbon.provider.fichier;
 
+import org.apache.commons.io.FilenameUtils;
 import org.carbon.business.domain.carte.Carte;
 import org.carbon.common.constants.Constantes;
 import org.carbon.common.mapper.CarteMapper;
@@ -9,8 +10,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,38 +20,13 @@ import java.util.Scanner;
 public class FichierProvider {
 
     /**
-     * Fichier à lire et réécrire en sortie
-     */
-    private final File fichier;
-
-    /**
-     * Constructeur paramétré
-     *
-     * @param pFichier fichier à lire et réécrire
-     * @throws FileNotFoundException si le fichier n'est pas trouvé
-     */
-    public FichierProvider(final File pFichier) throws FileNotFoundException {
-        if (!pFichier.isFile()) {
-            throw new FileNotFoundException();
-        }
-
-        fichier = pFichier;
-    }
-
-    /**
-     * @return fichier
-     */
-    public File getFichier() {
-        return fichier;
-    }
-
-    /**
      * Lecteur de fichier
      * Fait appel à un mapper pour construire une carte en sortie
      *
+     * @param fichier fichier à transformer en objet Carte
      * @return une carte remplie avec les conditions initiales
      */
-    public Carte reader() {
+    public static Carte reader(final File fichier) {
         final ArrayList<String> listeLignes = new ArrayList<>();
         try {
             final Scanner scanner = new Scanner(fichier);
@@ -73,22 +47,26 @@ public class FichierProvider {
      * Fait appel à un mapper pour construire les lignes du fichier de sortie
      *
      * @param carte la carte à transformer au format fichier
+     * @param fichierEntree fichier d'entrée
      */
-    public void writer(final Carte carte) {
+    public static void writer(final Carte carte, final File fichierEntree) {
         final ArrayList<String> listeLignes = FichierMapper.fichierMapping(carte);
 
         try {
-            final File fichierTemporaire = new File(fichier.getName() + Constantes.EXTENSION_FICHIER_TEMPORAIRE);
-            final FileWriter writer = new FileWriter(fichierTemporaire);
+            final String chemin = Paths.get(fichierEntree.toURI()).getParent().toString() + File.separator;
+            final String nomBaseFichier = FilenameUtils.getBaseName(fichierEntree.getName());
+            final String extensionFichier = "." + FilenameUtils.getExtension(fichierEntree.getName());
+            final File fichierSortie = new File(chemin
+                    + nomBaseFichier
+                    + Constantes.EXTENSION_FICHIER_SORTIE
+                    + extensionFichier);
+            final FileWriter writer = new FileWriter(fichierSortie);
 
             for (String ligne : listeLignes) {
                 writer.write(ligne);
+                writer.write("\r");
             }
             writer.close();
-
-            final Path fichierTemporairePath = Paths.get(fichierTemporaire.toURI());
-            final Path fichierPath = Paths.get(fichier.toURI());
-            Files.move(fichierTemporairePath, fichierPath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

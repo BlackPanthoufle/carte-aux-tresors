@@ -34,6 +34,11 @@ public interface Case {
     boolean hasTresor();
 
     /**
+     * @return le nombre de trésors sur la case
+     */
+    int getNbTresor();
+
+    /**
      * @param pTresor trésor à attribuer à la case
      */
     void setTresor(final Tresor pTresor);

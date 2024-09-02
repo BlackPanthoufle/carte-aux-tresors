@@ -51,7 +51,7 @@ public class CarteMapper {
      * @param listeLignes lignes de fichiers
      * @return objet Carte
      */
-    public static Carte carteMapping(ArrayList<String> listeLignes) {
+    public static Carte carteMapping(final ArrayList<String> listeLignes) {
         for (final String ligne : listeLignes) {
             if (ligne.startsWith(Constantes.IDENTIFIANT_COMMENTAIRE_FICHIER)) {
                 continue;
@@ -61,7 +61,7 @@ public class CarteMapper {
 
         }
 
-        final ArrayList<ArrayList<Case>> matrice = genererDefaultMatrice();
+        final ArrayList<ArrayList<Case>> matrice = genererMatriceParDefaut();
         genererMontagnes(matrice);
         insererTresors(matrice);
         insererAventuriers(matrice);
@@ -138,7 +138,7 @@ public class CarteMapper {
      *
      * @return une matrice par défaut avec des Plaines
      */
-    private static ArrayList<ArrayList<Case>> genererDefaultMatrice() {
+    private static ArrayList<ArrayList<Case>> genererMatriceParDefaut() {
         if (largeur < 1 || hauteur < 1) {
             throw new RuntimeException("Dimensions de la carte incorrectes.");
         }

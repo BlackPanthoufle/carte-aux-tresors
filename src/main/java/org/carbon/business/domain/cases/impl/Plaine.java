@@ -53,6 +53,11 @@ public class Plaine implements Case {
     }
 
     @Override
+    public int getNbTresor() {
+        return tresor.getNombreTresors();
+    }
+
+    @Override
     public void setTresor(Tresor pTresor) {
         tresor = pTresor;
     }

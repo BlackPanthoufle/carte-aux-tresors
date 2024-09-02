@@ -76,9 +76,9 @@ public class Constantes {
     public static final String CODE_MOUVEMENT_CONSTANT = "A";
 
     /**
-     * Extension pour l'écriture de fichier temporaire
+     * Suffixe pour le fichier de sortie
      */
-    public static final String EXTENSION_FICHIER_TEMPORAIRE = "-tmp";
+    public static final String EXTENSION_FICHIER_SORTIE = "-sortie";
 
     /**
      * Identifiant pour les informations sur la carte dans un fichier

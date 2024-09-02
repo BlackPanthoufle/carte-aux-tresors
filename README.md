@@ -25,7 +25,7 @@ Les montagnes sont des obstacles infranchissables pour les aventuriers. Chaque m
 M - 1 - 1
 ```
 
-Enfin, le plus important pour les aventuriers, les trésors. Plusieurs trésors peuvent être présents sur une même case; le nombre de trésors sur une même case est indiqué dans le fichier d’entrée de l’exercice par la ligne suivante :
+Enfin, le plus important pour les aventuriers, les trésors. Plusieurs trésors peuvent être présents sur une même case ; le nombre de trésors sur une même case est indiqué dans le fichier d’entrée de l’exercice par la ligne suivante :
 ```
 # {T comme Trésor} - {Axe horizontal} - {Axe vertical} - {Nb. de trésors}
 T - 0 - 3 - 2
@@ -47,7 +47,7 @@ Que l’on peut représenter sous la forme suivante :
 T(2) T(1) .
 ```
 ## Les aventuriers
-Un aventurier est caractérisé par sa position sur la carte et son orientation (nord, sud, ...). Il ne peut se déplacer que d’une case à la fois, dans la direction définie par son orientation. Ceci dit, il peut changer d’orientation en pivotant de 90° vers la droite ou la gauche. Il débute son parcours avec une orientation (Nord, Sud, Est, Ouest), et une séquence de mouvements (Avancer, tourner à Gauche, tourner à Droite) prédéfinies. Ils ne sont pas montagnards pour un sou, et ne peuvent donc pas traverser une case montagne.
+Un aventurier est caractérisé par sa position sur la carte et son orientation (nord, sud ...). Il ne peut se déplacer que d’une case à la fois, dans la direction définie par son orientation. Ceci dit, il peut changer d’orientation en pivotant de 90° vers la droite ou la gauche. Il commence son parcours avec une orientation (nord, sud, est, ouest), et une séquence de mouvements (Avancer, tourner à Gauche, tourner à Droite) prédéfinies. Ils ne sont pas montagnards pour un sou, et ne peuvent donc pas traverser une case montagne.
 
 Exemple de séquence de mouvement :
 
@@ -77,9 +77,9 @@ M (1) .
 A (2) .
 ```
 
-On remarquera que l’aventurier reste bloqué en orientation Nord, à cause de la montagne. Dans ce cas précis, l’aventurier ignore les mouvements bloquants et poursuit l’exécution de la séquence.
+On remarquera que l’aventurier reste bloqué en orientation nord, à cause de la montagne. Dans ce cas précis, l’aventurier ignore les mouvements bloquants et poursuit l’exécution de la séquence.
 
-Si l’aventurier passe par dessus une case Trésor, il ramasse un trésor présent sur la case. Si la case contient 2 trésors, l’aventurier devra quitter la case puis revenir sur celle-ci afin de ramasser le 2ème trésor.
+Si l’aventurier passe par-dessus une case Trésor, il ramasse un trésor présent sur la case. Si la case contient deux trésors, l’aventurier devra quitter la case puis revenir sur celle-ci afin de ramasser le 2ᵉ trésor.
 
 Il ne peut y avoir qu’un aventurier à la fois sur une même case. Les mouvements des aventuriers sont évalués tour par tour. En cas de conflit entre mouvements sur un même tour, c’est l’ordre d’apparition de l’aventurier dans le fichier qui donne la priorité des mouvements.
 
@@ -108,7 +108,7 @@ T(2) T(3) .
 
 ## Simuler les mouvements des aventuriers
 Le programme doit être capable d’exécuter les mouvements des différents aventuriers en respectant les contraintes de l’exercice, de gérer la collecte des trésors et de restituer le résultat final de la simulation.
-Dans l’exemple précédent, Lara collecte 3 trésors et finit son parcours en (0 - 3).
+Dans l’exemple précédent, Lara collecte trois trésors et finit son parcours en (0 - 3).
 
 ## Écrire le fichier de sortie
 Le programme doit être capable d’écrire un fichier contenant le résultat final de la simulation.
