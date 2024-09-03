@@ -40,28 +40,42 @@ public class CarteProvider {
                 final Coordonnees coordonneesAventurierCourant = mapPositionsAventuriers.get(nomAventurierCourant);
                 final Mouvement mouvementSuivant = getMouvementSuivantFromCoordonnees(carte, coordonneesAventurierCourant);
 
-                if (mouvementSuivant != null && mouvementSuivant.equals(Mouvement.AVANCER)) {
-                    final Aventurier aventurierCourant = getAventurierAtCoordonnees(carte, coordonneesAventurierCourant);
-                    final Coordonnees nouvellesCoordonnees = nouvellesCoordonnees(coordonneesAventurierCourant,
-                            aventurierCourant.getOrientationCardinale());
-                    if (coordonneesValides(carte, nouvellesCoordonnees)) {
-                        deplacerAventurier(carte, coordonneesAventurierCourant, nouvellesCoordonnees, aventurierCourant);
-                        collecterTresor(carte, nouvellesCoordonnees);
-                        mapPositionsAventuriers.replace(aventurierCourant.getNom(), nouvellesCoordonnees);
-                    }
-                } else if (mouvementSuivant != null
-                        && (mouvementSuivant.equals(Mouvement.DROITE) || mouvementSuivant.equals(Mouvement.GAUCHE))) {
-                    carte.getMatrice()
-                            .get(coordonneesAventurierCourant.getIndexHauteur())
-                            .get(coordonneesAventurierCourant.getIndexLargeur())
-                            .getAventurier()
-                            .setOrientationCardinaleFromMouvement(mouvementSuivant);
-                } else {
-                    mapPriorite.remove(prioriteEnCours);
-                }
+                effectuerMouvement(carte, prioriteEnCours, mouvementSuivant, coordonneesAventurierCourant);
             }
 
             prioriteEnCours = (prioriteEnCours + 1) % nombreTotalAventuriers;
+        }
+    }
+
+    /**
+     * Méthode d'exécution du prochain mouvement d'un aventurier ou suppression de l'aventurier de la map s'il n'a plus de mouvements à effectuer
+     *
+     * @param carte objet Carte
+     * @param prioriteEnCours priorité en cours
+     * @param mouvementSuivant mouvement à réaliser
+     * @param coordonneesAventurierCourant coordonnées de l'aventurier qui doit faire un mouvement
+     */
+    private static void effectuerMouvement(final Carte carte, final int prioriteEnCours,
+                                           final Mouvement mouvementSuivant,
+                                           final Coordonnees coordonneesAventurierCourant) {
+        if (mouvementSuivant != null && mouvementSuivant.equals(Mouvement.AVANCER)) {
+            final Aventurier aventurierCourant = getAventurierAtCoordonnees(carte, coordonneesAventurierCourant);
+            final Coordonnees nouvellesCoordonnees = nouvellesCoordonnees(coordonneesAventurierCourant,
+                    aventurierCourant.getOrientationCardinale());
+            if (coordonneesValides(carte, nouvellesCoordonnees)) {
+                deplacerAventurier(carte, coordonneesAventurierCourant, nouvellesCoordonnees, aventurierCourant);
+                collecterTresor(carte, nouvellesCoordonnees);
+                mapPositionsAventuriers.replace(aventurierCourant.getNom(), nouvellesCoordonnees);
+            }
+        } else if (mouvementSuivant != null
+                && (mouvementSuivant.equals(Mouvement.DROITE) || mouvementSuivant.equals(Mouvement.GAUCHE))) {
+            carte.getMatrice()
+                    .get(coordonneesAventurierCourant.getIndexHauteur())
+                    .get(coordonneesAventurierCourant.getIndexLargeur())
+                    .getAventurier()
+                    .setOrientationCardinaleFromMouvement(mouvementSuivant);
+        } else {
+            mapPriorite.remove(prioriteEnCours);
         }
     }
 
