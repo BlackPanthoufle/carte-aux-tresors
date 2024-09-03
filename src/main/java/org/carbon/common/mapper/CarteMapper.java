@@ -58,11 +58,12 @@ public class CarteMapper {
 
         resetAttributsStatic();
 
-        for (final String ligne : listeLignes) {
+        for (String ligne : listeLignes) {
             if (ligne.startsWith(Constantes.IDENTIFIANT_COMMENTAIRE_FICHIER)) {
                 continue;
             }
-            final String[] ligneSplit = ligne.split("-");
+            ligne = ligne.trim();
+            final String[] ligneSplit = ligne.split(Constantes.SEPARATEUR_ELEMENTS_FICHIER);
             genererObjets(ligneSplit);
         }
 

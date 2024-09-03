@@ -8,9 +8,14 @@ import java.io.File;
 public class Constantes {
 
     /**
-     *
+     * Constante du répertoire d'entrée
      */
     public static final String REPERTOIRE_ENTREE = "cartes" + File.separator;
+
+    /**
+     * Constante du caractère de séparation des éléments dans le fichier
+     */
+    public static final String SEPARATEUR_ELEMENTS_FICHIER = "-";
 
     /**
      * Constante pour avoir le modulo d'une rotation complète

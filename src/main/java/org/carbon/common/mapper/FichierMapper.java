@@ -41,7 +41,8 @@ public class FichierMapper {
      * @return ligne d'informations pour une carte
      */
     private static String genererLigneCarte(final Carte carte) {
-        return Constantes.IDENTIFIANT_CARTE_FICHIER + "-" + carte.getLargeur() + "-" + carte.getHauteur();
+        return Constantes.IDENTIFIANT_CARTE_FICHIER + Constantes.SEPARATEUR_ELEMENTS_FICHIER + carte.getLargeur()
+                + Constantes.SEPARATEUR_ELEMENTS_FICHIER + carte.getHauteur();
     }
 
     /**
@@ -56,7 +57,8 @@ public class FichierMapper {
         for (int i = 0 ; i < carte.getHauteur() ; i++) {
             for (int j = 0 ; j < carte.getLargeur() ; j++) {
                 if (!carte.getMatrice().get(i).get(j).isFranchissable()) {
-                    lignesMontagnes.add(Constantes.IDENTIFIANT_MONTAGNE_FICHIER + "-" + j + "-" + i);
+                    lignesMontagnes.add(Constantes.IDENTIFIANT_MONTAGNE_FICHIER + Constantes.SEPARATEUR_ELEMENTS_FICHIER
+                            + j + Constantes.SEPARATEUR_ELEMENTS_FICHIER + i);
                 }
             }
         }
@@ -77,7 +79,8 @@ public class FichierMapper {
             for (int j = 0 ; j < carte.getLargeur() ; j++) {
                 if (carte.getMatrice().get(i).get(j).isFranchissable()
                         && carte.getMatrice().get(i).get(j).hasTresor()) {
-                    lignesTresors.add(Constantes.IDENTIFIANT_TRESOR_FICHIER + "-" + j + "-" + i + "-"
+                    lignesTresors.add(Constantes.IDENTIFIANT_TRESOR_FICHIER + Constantes.SEPARATEUR_ELEMENTS_FICHIER + j
+                            + Constantes.SEPARATEUR_ELEMENTS_FICHIER + i + Constantes.SEPARATEUR_ELEMENTS_FICHIER
                             + carte.getMatrice().get(i).get(j).getNbTresor());
                 }
             }
@@ -99,9 +102,13 @@ public class FichierMapper {
             for (int j = 0 ; j < carte.getLargeur() ; j++) {
                 if (carte.getMatrice().get(i).get(j).isFranchissable()
                         && carte.getMatrice().get(i).get(j).hasAventurier()) {
-                    lignesAventuriers.add(Constantes.IDENTIFIANT_AVENTURIER_FICHIER + "-"
-                            + carte.getMatrice().get(i).get(j).getAventurier().getNom() + "-" + j + "-" + i + "-"
-                            + carte.getMatrice().get(i).get(j).getAventurier().getOrientationCardinale().getCodeOrientationCardinale() + "-"
+                    lignesAventuriers.add(Constantes.IDENTIFIANT_AVENTURIER_FICHIER
+                            + Constantes.SEPARATEUR_ELEMENTS_FICHIER
+                            + carte.getMatrice().get(i).get(j).getAventurier().getNom()
+                            + Constantes.SEPARATEUR_ELEMENTS_FICHIER  + j + Constantes.SEPARATEUR_ELEMENTS_FICHIER + i
+                            + Constantes.SEPARATEUR_ELEMENTS_FICHIER
+                            + carte.getMatrice().get(i).get(j).getAventurier().getOrientationCardinale().getCodeOrientationCardinale()
+                            + Constantes.SEPARATEUR_ELEMENTS_FICHIER
                             + carte.getMatrice().get(i).get(j).getAventurier().getTresorsRamasses());
                 }
             }
