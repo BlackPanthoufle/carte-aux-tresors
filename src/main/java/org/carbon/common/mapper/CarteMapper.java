@@ -23,27 +23,27 @@ public class CarteMapper {
     /**
      * Mise en mémoire des positions des montagnes
      */
-    private static final ArrayList<Coordonnees> listPositionsMontagnes = new ArrayList<>();
+    private static ArrayList<Coordonnees> listPositionsMontagnes;
 
     /**
      * Mise en mémoire des positions des trésors et de l'objet associé
      */
-    private static final HashMap<Coordonnees, Tresor> mapPositionsTresors = new HashMap<>();
+    private static HashMap<Coordonnees, Tresor> mapPositionsTresors;
 
     /**
      * Mise en mémoire des positions des aventuriers et de l'objet associé
      */
-    private static final HashMap<Coordonnees, Aventurier> mapPositionsAventuriers = new HashMap<>();
+    private static HashMap<Coordonnees, Aventurier> mapPositionsAventuriers;
 
     /**
      * Largeur de la matrice
      */
-    private static int largeur = 0;
+    private static int largeur;
 
     /**
      * Hauteur de la matrice
      */
-    private static int hauteur = 0;
+    private static int hauteur;
 
     /**
      * Méthode de mapping Fichier -> Carte
@@ -52,13 +52,18 @@ public class CarteMapper {
      * @return objet Carte
      */
     public static Carte carteMapping(final ArrayList<String> listeLignes) {
+        if (listeLignes.isEmpty()) {
+            throw new RuntimeException("Aucune ligne dans le fichier en entrée.");
+        }
+
+        resetAttributsStatic();
+
         for (final String ligne : listeLignes) {
             if (ligne.startsWith(Constantes.IDENTIFIANT_COMMENTAIRE_FICHIER)) {
                 continue;
             }
             final String[] ligneSplit = ligne.split("-");
             genererObjets(ligneSplit);
-
         }
 
         final ArrayList<ArrayList<Case>> matrice = genererMatriceParDefaut();
@@ -201,8 +206,8 @@ public class CarteMapper {
      */
     private static void genererMontagnes(ArrayList<ArrayList<Case>> matrice) {
         for (final Coordonnees coordonnees : listPositionsMontagnes) {
-            if (coordonnees.getIndexHauteur() > hauteur || coordonnees.getIndexHauteur() < 0
-                    || coordonnees.getIndexLargeur() > largeur || coordonnees.getIndexLargeur() < 0) {
+            if (coordonnees.getIndexHauteur() >= hauteur || coordonnees.getIndexHauteur() < 0
+                    || coordonnees.getIndexLargeur() >= largeur || coordonnees.getIndexLargeur() < 0) {
                 throw new RuntimeException("Position d'une montagne en dehors de la carte.");
             }
 
@@ -222,8 +227,8 @@ public class CarteMapper {
      */
     private static void insererTresors(final ArrayList<ArrayList<Case>> matrice) {
         for (final Coordonnees coordonnees : mapPositionsTresors.keySet()) {
-            if (coordonnees.getIndexHauteur() > hauteur || coordonnees.getIndexHauteur() < 0
-                    || coordonnees.getIndexLargeur() > largeur || coordonnees.getIndexLargeur() < 0) {
+            if (coordonnees.getIndexHauteur() >= hauteur || coordonnees.getIndexHauteur() < 0
+                    || coordonnees.getIndexLargeur() >= largeur || coordonnees.getIndexLargeur() < 0) {
                 throw new RuntimeException("Position d'un trésor en dehors de la carte.");
             }
 
@@ -247,8 +252,8 @@ public class CarteMapper {
      */
     private static void insererAventuriers(final ArrayList<ArrayList<Case>> matrice) {
         for (final Coordonnees coordonnees : mapPositionsAventuriers.keySet()) {
-            if (coordonnees.getIndexHauteur() > hauteur || coordonnees.getIndexHauteur() < 0
-                    || coordonnees.getIndexLargeur() > largeur || coordonnees.getIndexLargeur() < 0) {
+            if (coordonnees.getIndexHauteur() >= hauteur || coordonnees.getIndexHauteur() < 0
+                    || coordonnees.getIndexLargeur() >= largeur || coordonnees.getIndexLargeur() < 0) {
                 throw new RuntimeException("Position d'un aventurier en dehors de la carte.");
             }
 
@@ -263,6 +268,17 @@ public class CarteMapper {
 
             matrice.get(coordonnees.getIndexHauteur()).get(coordonnees.getIndexLargeur()).setAventurier(mapPositionsAventuriers.get(coordonnees));
         }
+    }
+
+    /**
+     * Initialise les attributs statiques
+     */
+    private static void resetAttributsStatic() {
+        listPositionsMontagnes = new ArrayList<>();
+        mapPositionsTresors = new HashMap<>();
+        mapPositionsAventuriers = new HashMap<>();
+        largeur = 0;
+        hauteur = 0;
     }
 
 }

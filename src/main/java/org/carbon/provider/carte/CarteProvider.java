@@ -16,12 +16,12 @@ public class CarteProvider {
     /**
      * Mise en mémoire de l'ordre de passage des aventuriers
      */
-    final private static HashMap<Integer, String> mapPriorite = new HashMap<>();
+    private static HashMap<Integer, String> mapPriorite = new HashMap<>();
 
     /**
      * Mise en mémoire des positions des aventuriers pour un accès plus rapide
      */
-    final private static HashMap<String, Coordonnees> mapPositionsAventuriers = new HashMap<>();
+    private static HashMap<String, Coordonnees> mapPositionsAventuriers = new HashMap<>();
 
     /**
      * Service de lancement de l'exploration des aventuriers sur la carte
@@ -29,6 +29,8 @@ public class CarteProvider {
      * @param carte objet Carte à explorer
      */
     public static void demarrerExplorations(final Carte carte) {
+        resetAttributsStatic();
+
         miseEnMemoireAventurier(carte);
 
         final int nombreTotalAventuriers = mapPriorite.size();
@@ -93,6 +95,9 @@ public class CarteProvider {
 
                     isAventurierUnique(aventurier);
 
+                    if (mapPriorite.containsKey(aventurier.getOrdrePassage())) {
+                        throw new RuntimeException("Plusieurs aventuriers ont le même niveau de priorité.");
+                    }
                     mapPriorite.put(aventurier.getOrdrePassage(), aventurier.getNom());
                     mapPositionsAventuriers.put(aventurier.getNom(), new Coordonnees(i, j));
                 }
@@ -227,6 +232,14 @@ public class CarteProvider {
                     .getTresor()
                     .decrementeNombreTresors();
         }
+    }
+
+    /**
+     * Initialise les attributs statiques
+     */
+    private static void resetAttributsStatic() {
+        mapPriorite = new HashMap<>();
+        mapPositionsAventuriers = new HashMap<>();
     }
 
 }
