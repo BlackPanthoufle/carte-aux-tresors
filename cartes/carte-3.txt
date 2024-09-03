@@ -1,0 +1,8 @@
+C-8-8
+M-1-0
+M-2-1
+M-0-1
+T-2-3-2
+A-Lara-0-0-O-AAAGAGA
+A-Indiana-1-1-O-GAAGAGADDA
+A-Drake-3-5-O-GAAGAGADDA
