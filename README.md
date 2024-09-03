@@ -2,6 +2,11 @@
 
 > Guidez les aventuriers en quête de trésors !
 
+# Lancement de l'application
+Déposer le fichier de test .txt dans le répertoire "cartes/".
+
+Lancer l'application avec la méthode main dans "Application.java" en indiquant le nom du fichier (sans le chemin) dans les arguments de lancement.
+
 # Contexte
 Le gouvernement péruvien vient d’autoriser les aventuriers en quête de trésors à explorer les 85 182 km2 du département de la Madre de Dios. Vous devez réaliser un système permettant de suivre les déplacements et les collectes de trésors effectuées par les aventuriers. Le gouvernement péruvien étant très à cheval sur les bonnes pratiques de code, il est important de réaliser un code de qualité, lisible, et maintenable (oui, ça veut dire avec des tests) !
 
