@@ -167,11 +167,6 @@ public class Constantes {
     public static final int POSITION_AVENTURIER_SEQUENCE_MOUVEMENT_FICHIER = 5;
 
     /**
-     * Position dans une ligne de fichier du nombre de trésors ramassés par un aventurier
-     */
-    public static final int POSITION_AVENTURIER_TRESORS_RAMASSES_FICHIER = 5;
-
-    /**
      * Constructeur par défaut
      */
     private Constantes() {}

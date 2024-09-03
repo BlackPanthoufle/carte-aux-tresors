@@ -37,24 +37,6 @@ public class Aventurier {
     private final LinkedList<Mouvement> sequenceMouvements;
 
     /**
-     * Constructeur exhaustif de la classe Aventurier
-     *
-     * @param pNom nom de l'aventurier
-     * @param pOrientationCardinale orientation cardinale initiale
-     * @param pTresorsRamasses nombre de trésors ramassés
-     * @param pOrdrePassage ordre de passage
-     * @param pSequenceMouvements séquence de mouvement intiale
-     */
-    public Aventurier(final String pNom, final OrientationCardinale pOrientationCardinale, final int pTresorsRamasses,
-            final int pOrdrePassage, final LinkedList<Mouvement> pSequenceMouvements) {
-        nom = pNom;
-        orientationCardinale = pOrientationCardinale;
-        tresorsRamasses = pTresorsRamasses;
-        ordrePassage = pOrdrePassage;
-        sequenceMouvements = pSequenceMouvements;
-    }
-
-    /**
      * Constructeur de la classe Aventurier
      *
      * @param pNom nom de l'aventurier
@@ -94,13 +76,6 @@ public class Aventurier {
      */
     public OrientationCardinale getOrientationCardinale() {
         return orientationCardinale;
-    }
-
-    /**
-     * @param orientationCardinale une nouvelle orientation cardinale
-     */
-    public void setOrientationCardinale(final OrientationCardinale orientationCardinale) {
-        this.orientationCardinale = orientationCardinale;
     }
 
     /**
