@@ -3,9 +3,22 @@
 > Guidez les aventuriers en quête de trésors !
 
 # Lancement de l'application
-Déposer le fichier de test .txt dans le répertoire "cartes/".
+Déposer les fichiers de test au format ".txt" dans le répertoire "cartes/".
 
 Lancer l'application avec la méthode main dans "Application.java" en indiquant le nom du fichier (sans le chemin) dans les arguments de lancement.
+
+Pour fabriquer un JAR exécutable, lancer la commande suivante :
+```
+mvn clean compile assembly:single
+```
+
+On peut ensuite lancer depuis la racine du projet la commande suivante :
+```
+java -jar target/carte-aux-tresors-1.0-SNAPSHOT-jar-with-dependencies.jar <nom du fichier>.txt
+```
+
+Le résultat s'affichera dans le répertoire "cartes/" où un nouveau fichier "<nom original du fichier>-sortie.txt" apparaîtra si l'exécution s'est correctement déroulée.
+Sinon, regarder les logs applicatifs pour voir l'erreur.
 
 # Contexte
 Le gouvernement péruvien vient d’autoriser les aventuriers en quête de trésors à explorer les 85 182 km2 du département de la Madre de Dios. Vous devez réaliser un système permettant de suivre les déplacements et les collectes de trésors effectuées par les aventuriers. Le gouvernement péruvien étant très à cheval sur les bonnes pratiques de code, il est important de réaliser un code de qualité, lisible, et maintenable (oui, ça veut dire avec des tests) !
